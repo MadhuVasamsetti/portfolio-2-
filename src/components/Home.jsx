@@ -1,6 +1,7 @@
 import "../styles/home.css";
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import useReveal from "../hooks/useReveal";
 
 import myPhoto from "../assets/images/myphoto.jpg";
@@ -14,6 +15,8 @@ import {
 function Hero() {
   const heroRef = useRef(null);
   const imageRef = useRef(null);
+
+  const { t } = useTranslation();
 
   useReveal(heroRef);
 
@@ -32,11 +35,12 @@ function Hero() {
 
     window.addEventListener("mousemove", handleMouseMove);
 
-    return () =>
+    return () => {
       window.removeEventListener(
         "mousemove",
         handleMouseMove
       );
+    };
   }, []);
 
   return (
@@ -45,6 +49,7 @@ function Hero() {
       className="hero"
       ref={heroRef}
     >
+
       {/* Background */}
 
       <div className="hero-background"></div>
@@ -73,7 +78,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: .6 }}
           >
-            SOFTWARE ENGINEER
+            {t("hero.tag")}
           </motion.p>
 
           <motion.h1
@@ -85,13 +90,15 @@ function Hero() {
               delay: .2,
             }}
           >
+
             <span className="line">
-              MADHUKAR
+              {t("hero.title1")}
             </span>
 
             <span className="line highlight">
-              VASAMSETTI
+              {t("hero.title2")}
             </span>
+
           </motion.h1>
 
           <motion.p
@@ -108,14 +115,7 @@ function Hero() {
               delay: .5,
             }}
           >
-            Passionate Full Stack MERN Developer
-            specializing in React, Node.js,
-            Express and MongoDB.
-
-            I enjoy building beautiful,
-            scalable and high-performance
-            web applications with exceptional
-            user experience.
+            {t("hero.description")}
           </motion.p>
 
           {/* Status */}
@@ -132,9 +132,11 @@ function Hero() {
               delay: .7,
             }}
           >
+
             <div className="status-dot"></div>
 
-            Available for Internship
+            {t("hero.status")}
+
           </motion.div>
 
           {/* Buttons */}
@@ -153,19 +155,21 @@ function Hero() {
               delay: .9,
             }}
           >
+
             <a
               href="#projects"
               className="btn-primary"
             >
-              View Projects
+              {t("My projects")}
             </a>
 
             <a
               href="#contact"
               className="btn-secondary"
             >
-              Contact Me
+              {t("Get in touch")}
             </a>
+
           </motion.div>
 
           {/* Social */}
@@ -182,6 +186,7 @@ function Hero() {
               delay: 1.1,
             }}
           >
+
             <a
               href="https://github.com/yourusername"
               target="_blank"
@@ -197,17 +202,17 @@ function Hero() {
             >
               <FaLinkedin />
             </a>
+
           </motion.div>
 
         </div>
 
         {/* RIGHT SIDE */}
-
-        <motion.div
+                <motion.div
           className="hero-right"
           initial={{
             opacity: 0,
-            scale: .8,
+            scale: 0.8,
             rotate: -6,
           }}
           animate={{
@@ -217,18 +222,19 @@ function Hero() {
           }}
           transition={{
             duration: 1,
-            delay: .4,
+            delay: 0.4,
           }}
         >
-          {/* Glow */}
+          {/* Background Glow */}
 
           <div className="hero-glow"></div>
 
-          {/* Experience Card */}
+          {/* Floating Badge */}
 
-         
+          
+            
 
-          {/* Image */}
+          {/* Profile Image */}
 
           <motion.div
             ref={imageRef}
@@ -247,11 +253,25 @@ function Hero() {
               alt="Madhu Vasamsetti"
             />
           </motion.div>
+
+          {/* Decorative Circle */}
+
+          <motion.div
+            className="hero-circle"
+            animate={{
+              rotate: 360,
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 30,
+              ease: "linear",
+            }}
+          />
         </motion.div>
 
       </div>
 
-      {/* Scroll */}
+      {/* Scroll Down */}
 
       <motion.div
         className="scroll-down"

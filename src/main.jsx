@@ -4,26 +4,26 @@ import App from "./App";
 
 import "./styles/global.css";
 
+/* Import i18n */
+import "./i18n";
+
 import Lenis from "@studio-freight/lenis";
 
-const lenis = new Lenis();
+const lenis = new Lenis({
+  duration: 1.2,
+  smoothWheel: true,
+  smoothTouch: false,
+});
 
-function raf(time){
-
-lenis.raf(time);
-
-requestAnimationFrame(raf);
-
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
 }
 
 requestAnimationFrame(raf);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-
-<React.StrictMode>
-
-<App/>
-
-</React.StrictMode>
-
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );

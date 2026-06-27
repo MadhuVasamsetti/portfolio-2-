@@ -1,0 +1,23 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "timeline": "Journey",
+    "contact": "Contact"
+  },
+
+  "hero": {
+    "tag": "SOFTWARE ENGINEER",
+    "title1": "MADHU",
+    "title2": "VASAMSETTI",
+    "description": "Passionate Full Stack MERN Developer creating modern responsive web applications."
+  },
+
+  "about": {
+    "tag": "ABOUT ME",
+    "title": "My Journey",
+    "subtitle": "Every project, every technology and every challenge has shaped me into the developer I am today."
+  }
+}
