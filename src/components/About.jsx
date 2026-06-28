@@ -24,7 +24,7 @@ function About() {
 
       <div className="container">
 
-        {/* Section Title */}
+        
 
         <motion.div
           className="about-heading"
@@ -48,11 +48,11 @@ function About() {
           </p>
         </motion.div>
 
-        {/* Main Grid */}
+        
 
         <div className="about-main">
 
-          {/* LEFT */}
+          
 
           <motion.div
             className="about-image-side"
@@ -62,7 +62,7 @@ function About() {
             viewport={{ once: true }}
           >
 
-            {/* Glow */}
+            
 
             <div className="profile-glow"></div>
 
@@ -126,7 +126,7 @@ function About() {
 
             <p>
               Hello! I'm <strong>Madhu Vasamsetti</strong>,
-              a passionate Full Stack MERN Developer who loves
+              passionate Full Stack MERN Developer who loves
               building responsive and modern web applications.
             </p>
 
@@ -175,9 +175,7 @@ function About() {
 
         </div>
 
-        {/* ==========================
-            CAREER TIMELINE
-        ========================== */}
+       
 
         <div className="career-section">
 
@@ -186,7 +184,7 @@ function About() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
-            My Career Journey
+            My Journey
           </motion.h2>
 
           <div className="timeline">
