@@ -57,7 +57,7 @@ function Navbar() {
 
           <li>
 
-            <a href="#about" onClick={closeMenu}>
+            <a href="#abo" onClick={closeMenu}>
 
               {t("navbar.about")}
 
