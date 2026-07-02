@@ -49,7 +49,7 @@ function Navbar() {
 
         </a>
 
-        {/* Navigation */}
+        
 
         <ul className={menuOpen ? "nav-links active" : "nav-links"}>
 
@@ -57,7 +57,7 @@ function Navbar() {
 
           <li>
 
-            <a href="#abo" onClick={closeMenu}>
+            <a href="#about" onClick={closeMenu}>
 
               {t("navbar.about")}
 
@@ -97,7 +97,7 @@ function Navbar() {
 
           </li>
 
-          {/* Mobile Resume */}
+          
 
           <li>
 
@@ -116,15 +116,15 @@ function Navbar() {
 
         </ul>
 
-        {/* Right Side */}
+        
 
         <div className="nav-right">
 
-          {/* Language Switcher */}
+          
 
           <LanguageSwitcher />
 
-          {/* Resume */}
+          {
 
           <a
             href="/resume.pdf"
@@ -137,7 +137,7 @@ function Navbar() {
 
           </a>
 
-          {/* Mobile Menu */}
+         
 
           <div
             className="menu-icon"
