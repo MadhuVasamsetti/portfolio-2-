@@ -1,295 +1,288 @@
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import "../styles/home.css";
-import { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import useReveal from "../hooks/useReveal";
 
-import myPhoto from "../assets/images/myphoto.jpg";
+import profileImg from "../assets/profile.png";
 
 import {
+  FaArrowRight,
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaJava,
+  FaAws,
   FaGithub,
-  FaLinkedin,
-  FaArrowDown,
+  FaCode,
 } from "react-icons/fa";
 
-function Hero() {
-  const heroRef = useRef(null);
-  const imageRef = useRef(null);
+/* ================= HERO DATA ================= */
 
-  const { t } = useTranslation();
+const ROLES = [
+  "Full Stack MERN Developer",
+  "React & Node.js Engineer",
+  "Problem Solver",
+  "UI-Focused Builder",
+];
 
-  useReveal(heroRef);
+const STACK_ICONS = [
+  { icon: <FaReact />, name: "React" },
+  { icon: <FaNodeJs />, name: "Node.js" },
+  { icon: <FaPython />, name: "Python" },
+  { icon: <FaJava />, name: "Java" },
+  { icon: <FaAws />, name: "AWS" },
+  { icon: <FaGithub />, name: "GitHub" },
+];
 
-  // Mouse Parallax Effect
+const STATS = [
+  { value: 10, suffix: "+", label: "Projects" },
+  { value: 15, suffix: "+", label: "Technologies" },
+  { value: 300, suffix: "+", label: "DSA Problems" },
+];
+
+/* ================= COUNT-UP NUMBER ================= */
+// Animates 0 -> value once the card scrolls into view, then stays.
+
+function Counter({ value, suffix }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const [display, setDisplay] = useState(0);
+
   useEffect(() => {
+    if (!inView) return;
+
+    const duration = 1200;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      setDisplay(Math.round(eased * value));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  }, [inView, value]);
+
+  return (
+    <h2 ref={ref}>
+      {display}
+      {suffix}
+    </h2>
+  );
+}
+
+/* ================= STAGGER VARIANTS ================= */
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+function Home() {
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  const bgRef = useRef(null);
+  const imageRef = useRef(null);
+  const tiltRef = useRef(null);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % ROLES.length);
+    }, 2600);
+
+    return () => clearInterval(id);
+  }, []);
+
+  // Cursor spotlight (page-wide) + subtle photo parallax
+  useEffect(() => {
+    const bg = bgRef.current;
     const image = imageRef.current;
 
     const handleMouseMove = (e) => {
-      if (!image) return;
+      if (bg) {
+        const px = (e.clientX / window.innerWidth) * 100;
+        const py = (e.clientY / window.innerHeight) * 100;
+        bg.style.setProperty("--spot-x", `${px}%`);
+        bg.style.setProperty("--spot-y", `${py}%`);
+      }
 
-      const x = (window.innerWidth / 2 - e.clientX) / 35;
-      const y = (window.innerHeight / 2 - e.clientY) / 35;
-
-      image.style.transform = `translate(${x}px, ${y}px)`;
+      if (image) {
+        const x = (window.innerWidth / 2 - e.clientX) / 40;
+        const y = (window.innerHeight / 2 - e.clientY) / 40;
+        image.style.transform = `translate(${x}px, ${y}px)`;
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
+  // 3D tilt on the photo, tracked locally so it only reacts
+  // while the cursor is actually over the stage.
+  useEffect(() => {
+    const el = tiltRef.current;
+    if (!el) return;
+
+    const handleMove = (e) => {
+      const rect = el.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      el.style.setProperty("--ry", `${px * 14}deg`);
+      el.style.setProperty("--rx", `${-py * 14}deg`);
+    };
+
+    const handleLeave = () => {
+      el.style.setProperty("--ry", "0deg");
+      el.style.setProperty("--rx", "0deg");
+    };
+
+    el.addEventListener("mousemove", handleMove);
+    el.addEventListener("mouseleave", handleLeave);
     return () => {
-      window.removeEventListener(
-        "mousemove",
-        handleMouseMove
-      );
+      el.removeEventListener("mousemove", handleMove);
+      el.removeEventListener("mouseleave", handleLeave);
     };
   }, []);
 
   return (
-    <section
-      id="home"
-      className="hero"
-      ref={heroRef}
-    >
+    <section className="hero-section" id="home">
+      <div className="hero-spotlight" ref={bgRef}></div>
+      <div className="hero-grain"></div>
+      <div className="hero-bg-circle hero-circle1"></div>
+      <div className="hero-bg-circle hero-circle2"></div>
 
-      {/* Background */}
+      <div className="hero-bg-text">MADHU</div>
 
-      <div className="hero-background"></div>
+      <div className="container hero-grid">
+        {/* LEFT */}
 
-      {/* Huge Background Text */}
+        <motion.div
+          className="hero-left"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <motion.span className="hero-badge" variants={itemVariants}>
+            <FaCode />
+            FULL STACK MERN DEVELOPER
+          </motion.span>
 
-      <div className="hero-bg-text">
-        MADHU
-      </div>
-
-      {/* Floating Shapes */}
-
-      <div className="floating one"></div>
-      <div className="floating two"></div>
-      <div className="floating three"></div>
-
-      <div className="container hero-container">
-
-        {/* LEFT SIDE */}
-
-        <div className="hero-left">
-
-          <motion.p
-            className="hero-tag"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: .6 }}
-          >
-            {t("hero.tag")}
-          </motion.p>
-
-          <motion.h1
-            className="hero-title"
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: .8,
-              delay: .2,
-            }}
-          >
-
-            <span className="line">
-              {t("hero.title1")}
-            </span>
-
-            <span className="line highlight">
-              {t("hero.title2")}
-            </span>
-
+          <motion.h1 variants={itemVariants}>
+            Hello,
+            <br />
+            I'm
+            <span> Madhukar.</span>
           </motion.h1>
 
-          <motion.p
-            className="hero-description"
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: .5,
-            }}
-          >
-            {t("hero.description")}
+          <motion.div className="hero-role-wrap" variants={itemVariants}>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={roleIndex}
+                className="hero-role"
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.4 }}
+              >
+                {ROLES[roleIndex]}
+                <span className="role-cursor" />
+              </motion.span>
+            </AnimatePresence>
+          </motion.div>
+
+          <motion.p variants={itemVariants}>
+            Passionate Full Stack Developer specializing in React,
+            Node.js, Express.js and MongoDB.
+            I love creating modern, scalable and visually beautiful
+            web applications that solve real-world problems.
           </motion.p>
 
-          {/* Status */}
-
-          <motion.div
-            className="hero-status"
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              delay: .7,
-            }}
-          >
-
-            <div className="status-dot"></div>
-
-            {t("hero.status")}
-
-          </motion.div>
-
-          {/* Buttons */}
-
-          <motion.div
-            className="hero-buttons"
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: .9,
-            }}
-          >
-
-            <a
-              href="#projects"
-              className="btn-primary"
-            >
-              {t("My projects")}
+          <motion.div className="hero-buttons" variants={itemVariants}>
+            <a href="#projects" className="primary-btn">
+              <span>View Projects</span>
+              <FaArrowRight />
             </a>
 
-            <a
-              href="#contact"
-              className="btn-secondary"
-            >
-              {t("Get in touch")}
+            <a href="#contact" className="secondary-btn">
+              <span>Contact Me</span>
             </a>
-
           </motion.div>
 
-          {/* Social */}
-
-          <motion.div
-            className="hero-socials"
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              delay: 1.1,
-            }}
-          >
-
-            <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaGithub />
-            </a>
-
-            <a
-              href="https://linkedin.com/in/yourusername"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedin />
-            </a>
-
+          <motion.div className="hero-stats" variants={itemVariants}>
+            {STATS.map((stat) => (
+              <motion.div
+                className="stat-card"
+                key={stat.label}
+                whileHover={{ y: -8 }}
+              >
+                <Counter value={stat.value} suffix={stat.suffix} />
+                <span>{stat.label}</span>
+              </motion.div>
+            ))}
           </motion.div>
 
-        </div>
-
-        {/* RIGHT SIDE */}
-                <motion.div
-          className="hero-right"
-          initial={{
-            opacity: 0,
-            scale: 0.8,
-            rotate: -6,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            rotate: 0,
-          }}
-          transition={{
-            duration: 1,
-            delay: 0.4,
-          }}
-        >
-          {/* Background Glow */}
-
-          <div className="hero-glow"></div>
-
-          {/* Floating Badge */}
-
-          
-            
-
-          {/* Profile Image */}
-
-          <motion.div
-            ref={imageRef}
-            className="image-box"
-            animate={{
-              y: [0, -12, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 5,
-              ease: "easeInOut",
-            }}
-          >
-            <img
-              src={myPhoto}
-              alt="Madhu Vasamsetti"
-            />
+          <motion.div className="hero-marquee" variants={itemVariants}>
+            <div className="marquee-track">
+              {[...STACK_ICONS, ...STACK_ICONS].map((item, index) => (
+                <span className="marquee-item" key={index}>
+                  {item.icon}
+                  {item.name}
+                </span>
+              ))}
+            </div>
           </motion.div>
-
-          {/* Decorative Circle */}
-
-          <motion.div
-            className="hero-circle"
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 30,
-              ease: "linear",
-            }}
-          />
         </motion.div>
 
+        {/* RIGHT — bounded stage: image + cards can never escape this box */}
+
+        <motion.div
+          className="hero-right"
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+        >
+          <div className="profile-tilt" ref={tiltRef}>
+            <div className="profile-wrapper" ref={imageRef}>
+              <img src={profileImg} alt="Madhukar" />
+            </div>
+          </div>
+
+          <motion.div
+            className="floating-card card-top"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 5 }}
+          >
+            <FaReact />
+            <div>
+              <h4>React Developer</h4>
+              <p>Frontend Specialist</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="floating-card card-bottom"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 5, delay: 0.5 }}
+          >
+            <FaNodeJs />
+            <div>
+              <h4>Backend Developer</h4>
+              <p>Node & Express</p>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
-
-      {/* Scroll Down */}
-
-      <motion.div
-        className="scroll-down"
-        animate={{
-          y: [0, 12, 0],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 2,
-        }}
-      >
-        <a href="#about">
-          <FaArrowDown />
-        </a>
-      </motion.div>
-
     </section>
   );
 }
 
-export default Hero;
+export default Home;

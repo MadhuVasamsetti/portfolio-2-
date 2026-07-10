@@ -35,7 +35,7 @@ function Contact() {
               <FaEnvelope />
               <div>
                 <h4>Email</h4>
-                <p>yourmail@gmail.com</p>
+                <p>vasamsettimadhukar@gmail.com</p>
               </div>
             </div>
 
@@ -43,7 +43,7 @@ function Contact() {
               <FaPhoneAlt />
               <div>
                 <h4>Phone</h4>
-                <p>+91 XXXXX XXXXX</p>
+                <p>+91 86880 64797</p>
               </div>
             </div>
 

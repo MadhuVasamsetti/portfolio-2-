@@ -1,531 +1,206 @@
-/* =======================================================
-                    PREMIUM NAVBAR
-======================================================= */
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:80px;
-    z-index:1000;
-
-    display:flex;
-    align-items:center;
-
-    transition:.45s ease;
-
-    background:transparent;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 22px 0;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background .35s ease, border-color .35s ease, padding .35s ease;
 }
 
-.navbar.scrolled{
-
-    background:rgba(8,8,8,.72);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    border-bottom:1px solid rgba(255,255,255,.06);
-
-    box-shadow:0 8px 35px rgba(0,0,0,.35);
-
+.navbar.scrolled {
+    padding: 14px 0;
+    background: rgba(5, 5, 5, .75);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
-/* =======================================================
-                    CONTAINER
-======================================================= */
-
-.nav-container{
-
-    width:min(92%,1350px);
-
-    margin:auto;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
+.nav-container {
+    width: min(92%, 1240px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
 }
 
-/* =======================================================
-                    LOGO
-======================================================= */
+/* ---------- Logo ---------- */
 
-.logo{
-
-    font-size:2rem;
-
-    font-weight:800;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    letter-spacing:1px;
-
-    transition:.35s;
-
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: .5px;
+    transition: color .25s ease;
 }
 
-.logo span{
-
-    color:#00E5FF;
-
+.logo:hover {
+    color: #00E5FF;
 }
 
-.logo:hover{
+/* ---------- Nav Links ---------- */
 
-    color:#00E5FF;
-
-    transform:translateY(-2px);
-
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    margin: 0;
+    padding: 0;
 }
 
-/* =======================================================
-                NAVIGATION LINKS
-======================================================= */
-
-.nav-links{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:40px;
-
-    list-style:none;
-
+.nav-links a {
+    position: relative;
+    color: #e4e4e4;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 4px 0;
+    transition: color .25s ease;
 }
 
-.nav-links li{
-
-    list-style:none;
-
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: #00E5FF;
+    transition: width .3s ease;
 }
 
-.nav-links a{
-
-    position:relative;
-
-    text-decoration:none;
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:500;
-
-    letter-spacing:.5px;
-
-    transition:.35s;
-
+.nav-links a:hover {
+    color: #00E5FF;
 }
 
-/* underline animation */
-
-.nav-links a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-8px;
-
-    width:0;
-
-    height:2px;
-
-    border-radius:50px;
-
-    background:#00E5FF;
-
-    transition:.35s;
-
+.nav-links a:hover::after {
+    width: 100%;
 }
 
-.nav-links a:hover{
-
-    color:#00E5FF;
-
+.mobile-socials {
+    display: none;
 }
 
-.nav-links a:hover::after{
+/* ---------- Right Side ---------- */
 
-    width:100%;
-
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
 
-/* =======================================================
-                RIGHT SIDE
-======================================================= */
-
-.nav-right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
+.nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-/* =======================================================
-                RESUME BUTTON
-======================================================= */
-
-.resume-btn{
-
-    padding:13px 28px;
-
-    border-radius:50px;
-
-    background:#00E5FF;
-
-    color:#000;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    transition:.35s;
-
-    border:none;
-
-    cursor:pointer;
-
+.nav-socials a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .1);
+    transition: .3s ease;
 }
 
-.resume-btn:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 18px 40px rgba(0,229,255,.35);
-
+.nav-socials a:hover {
+    background: #00E5FF;
+    color: #000;
+    transform: translateY(-3px);
 }
 
-/* =======================================================
-            LANGUAGE SWITCHER
-======================================================= */
+/* ---------- Mobile Menu Icon ---------- */
 
-.language-switcher{
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
+.menu-icon {
+    display: none;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
 }
 
-.language-switcher select{
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
-    padding:11px 18px;
+@media (max-width: 860px) {
 
-    border-radius:40px;
-
-    outline:none;
-
-    cursor:pointer;
-
-    color:white;
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    transition:.35s;
-
-    font-size:14px;
-
-}
-
-.language-switcher select:hover{
-
-    border-color:#00E5FF;
-
-    box-shadow:0 0 18px rgba(0,229,255,.25);
-
-}
-
-.language-switcher option{
-
-    background:#111;
-
-    color:white;
-
-}
-/* =======================================================
-                    MENU ICON
-======================================================= */
-
-.menu-icon{
-
-    display:none;
-
-    font-size:28px;
-
-    color:#fff;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-}
-
-.menu-icon:hover{
-
-    color:#00E5FF;
-
-    transform:rotate(90deg);
-
-}
-
-/* =======================================================
-                MOBILE RESUME
-======================================================= */
-
-.mobile-resume{
-
-    display:none;
-
-}
-
-/* =======================================================
-                DESKTOP SPACING
-======================================================= */
-
-@media(min-width:901px){
-
-    .nav-links{
-
-        margin-left:auto;
-
-        margin-right:40px;
-
+    .nav-socials {
+        display: none;
     }
 
+    .menu-icon {
+        display: flex;
+        align-items: center;
+        z-index: 1100;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: min(78%, 320px);
+        background: rgba(6, 6, 6, .98);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(255, 255, 255, .08);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 40px;
+        transition: right .4s ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+    .mobile-socials {
+        display: flex;
+        gap: 14px;
+        margin-top: 12px;
+    }
+
+    .mobile-socials a {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 17px;
+        background: rgba(255, 255, 255, .05);
+        border: 1px solid rgba(255, 255, 255, .1);
+        transition: .3s ease;
+    }
+
+    .mobile-socials a:hover {
+        background: #00E5FF;
+        color: #000;
+    }
 }
 
-/* =======================================================
-                TABLET
-======================================================= */
-
-@media(max-width:992px){
-
-    .nav-links{
-
-        gap:28px;
-
+@media (max-width: 480px) {
+    .logo {
+        font-size: 19px;
     }
-
-    .resume-btn{
-
-        padding:11px 22px;
-
-    }
-
-}
-
-/* =======================================================
-                MOBILE
-======================================================= */
-
-@media(max-width:900px){
-
-    .menu-icon{
-
-        display:block;
-
-        z-index:1001;
-
-    }
-
-    .desktop-resume{
-
-        display:none;
-
-    }
-
-    .nav-right{
-
-        gap:12px;
-
-    }
-
-    .language-switcher{
-
-        margin-right:10px;
-
-    }
-
-    .language-switcher select{
-
-        padding:8px 12px;
-
-        font-size:13px;
-
-    }
-
-    .nav-links{
-
-        position:fixed;
-
-        top:80px;
-
-        right:-100%;
-
-        width:300px;
-
-        height:calc(100vh - 80px);
-
-        background:rgba(10,10,10,.97);
-
-        backdrop-filter:blur(20px);
-
-        -webkit-backdrop-filter:blur(20px);
-
-        border-left:1px solid rgba(255,255,255,.08);
-
-        display:flex;
-
-        flex-direction:column;
-
-        justify-content:flex-start;
-
-        align-items:center;
-
-        gap:38px;
-
-        padding-top:60px;
-
-        transition:.45s ease;
-
-    }
-
-    .nav-links.active{
-
-        right:0;
-
-    }
-
-    .nav-links a{
-
-        font-size:18px;
-
-    }
-
-    .mobile-resume{
-
-        display:inline-block;
-
-        margin-top:20px;
-
-    }
-
-}
-
-/* =======================================================
-                SMALL MOBILE
-======================================================= */
-
-@media(max-width:600px){
-
-    .navbar{
-
-        height:75px;
-
-    }
-
-    .nav-links{
-
-        top:75px;
-
-        width:100%;
-
-        height:calc(100vh - 75px);
-
-    }
-
-    .logo{
-
-        font-size:1.7rem;
-
-    }
-
-    .language-switcher select{
-
-        padding:7px 10px;
-
-        font-size:12px;
-
-    }
-
-    .menu-icon{
-
-        font-size:25px;
-
-    }
-
-}
-
-/* =======================================================
-            PREMIUM HOVER EFFECT
-======================================================= */
-
-.navbar::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:0;
-
-    width:100%;
-
-    height:1px;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(0,229,255,.25),
-        transparent
-    );
-
-    opacity:0;
-
-    transition:.4s;
-
-}
-
-.navbar.scrolled::after{
-
-    opacity:1;
-
-}
-
-/* =======================================================
-            SMOOTH LINK TRANSITION
-======================================================= */
-
-.nav-links li{
-
-    transition:.3s;
-
-}
-
-.nav-links li:hover{
-
-    transform:translateY(-2px);
-
 }

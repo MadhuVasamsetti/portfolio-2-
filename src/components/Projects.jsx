@@ -35,11 +35,20 @@ const projects = [
   },
 ];
 
+// Fan geometry: how far each card sits from the centre card, in "slots".
+// With 3 projects the offsets are [-1, 0, 1]; this scales automatically
+// if you add more projects to the array above.
+function getFanOffsets(count) {
+  const mid = (count - 1) / 2;
+  return Array.from({ length: count }, (_, i) => i - mid);
+}
+
 function Projects() {
+  const offsets = getFanOffsets(projects.length);
+
   return (
     <section className="projects" id="projects">
       <div className="container">
-
         <motion.p
           className="section-tag"
           initial={{ opacity: 0, y: -20 }}
@@ -60,77 +69,79 @@ function Projects() {
           Featured <span>Projects</span>
         </motion.h2>
 
-        <div className="project-list">
+        <div className="project-fan">
+          {projects.map((project, index) => {
+            const offset = offsets[index];
+            const rotate = offset * 9; // degrees of fan-out per slot
+            const translateX = offset * 130; // horizontal spread per slot
+            const translateY = Math.abs(offset) * 46; // lower the further from centre
 
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              initial={{
-                opacity: 0,
-                x: 400,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.25,
-              }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.2,
-                ease: "easeOut",
-              }}
-            >
-              <div className="project-image">
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                  }}
-                />
-              </div>
-
-              <div className="project-content">
-                <h3>{project.title}</h3>
-
-                <p>{project.description}</p>
-
-                <div className="tech-stack">
-                  {project.tech.map((tech, i) => (
-                    <span key={i}>{tech}</span>
-                  ))}
+            return (
+              <motion.a
+                key={index}
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                className="fan-card"
+                style={{ zIndex: 100 - Math.abs(offset) }}
+                initial={{ opacity: 0, y: 80, rotate: 0 }}
+                whileInView={{
+                  opacity: 1,
+                  y: translateY,
+                  x: translateX,
+                  rotate: rotate,
+                }}
+                whileHover={{
+                  y: translateY - 28,
+                  rotate: 0,
+                  scale: 1.05,
+                  zIndex: 200,
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                <div className="fan-card-image">
+                  <img src={project.image} alt={project.title} />
+                  <div className="fan-card-overlay" />
                 </div>
 
-                <div className="project-buttons">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub
-                  </a>
+                <div className="fan-card-body">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
 
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Live Demo
-                  </a>
+                  <div className="tech-stack">
+                    {project.tech.map((tech, i) => (
+                      <span key={i}>{tech}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-buttons">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      GitHub
+                    </a>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Live Demo
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-
+              </motion.a>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );

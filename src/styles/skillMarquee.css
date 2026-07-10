@@ -1,0 +1,95 @@
+/* ==========================================================
+   SKILL MARQUEE — full width, edge to edge, scrolling loop
+   Drop <SkillMarquee /> anywhere inside a section. The
+   full-bleed trick below breaks it out of any parent
+   .container max-width so it always spans the whole page,
+   even if the component sits inside a centered container.
+========================================================== */
+
+.skill-marquee {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    overflow: hidden;
+    padding: 30px 0;
+
+    background: rgba(255, 255, 255, .02);
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+
+    /* fade the strip out at both edges instead of a hard cut */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.skill-marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    width: max-content;
+    animation: skillMarqueeScroll 24s linear infinite;
+}
+
+.skill-marquee:hover .skill-marquee-track {
+    animation-play-state: paused;
+}
+
+.skill-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 140px;
+    padding: 26px 22px;
+    border-radius: 18px;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .02));
+    border: 1px solid rgba(255, 255, 255, .08);
+    color: #fff;
+
+    transition: border-color .3s ease, background .3s ease, transform .3s ease;
+}
+
+.skill-box:hover {
+    border-color: rgba(0, 229, 255, .4);
+    background: rgba(0, 229, 255, .06);
+    transform: translateY(-6px);
+}
+
+.skill-box svg {
+    font-size: 30px;
+    color: #00E5FF;
+}
+
+.skill-box h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    white-space: nowrap;
+}
+
+@keyframes skillMarqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 640px) {
+    .skill-marquee { padding: 22px 0; }
+
+    .skill-box {
+        min-width: 110px;
+        padding: 20px 16px;
+    }
+
+    .skill-box svg { font-size: 24px; }
+    .skill-box h3 { font-size: 12px; }
+}

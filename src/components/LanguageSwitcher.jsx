@@ -14,6 +14,7 @@ function LanguageSwitcher() {
         <option value="en">🇺🇸 English</option>
 
         <option value="te">🇮🇳 తెలుగు</option>
+        
       </select>
     </div>
   );
