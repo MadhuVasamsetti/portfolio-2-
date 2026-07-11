@@ -47,7 +47,7 @@ body{
     display:flex;
     align-items:center;
     overflow:hidden;
-    padding:90px 0 100px;
+    padding:100px 0 100px;
     background:var(--bg);
     color:#fff;
     font-family:"Inter",sans-serif;
@@ -62,6 +62,7 @@ body{
 
 .hero-section img{
     display:block;
+    
     max-width:100%;
 }
 
@@ -157,11 +158,16 @@ body{
 
 /* ==========================================================
    HERO GRID
+   Columns swapped (.9fr / 1.1fr instead of 1.1fr / .9fr) and
+   order flipped on the two children below — this mirrors the
+   layout (image left, text right) while keeping the exact
+   same track proportions as before, just reversed. No JSX
+   changes needed.
 ========================================================== */
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1.1fr .9fr;
+    grid-template-columns:.9fr 1.1fr;
     gap:clamp(40px,5vw,90px);
     align-items:start;
 }
@@ -247,13 +253,14 @@ body{
 }
 
 /* ==========================================================
-   HERO LEFT
+   HERO LEFT (text) — now visually on the RIGHT
 ========================================================== */
 
 .hero-left{
     position:relative;
     z-index:2;
     min-width:0; /* lets this flex/grid child shrink instead of forcing overflow */
+    order:2;
 }
 
 .hero-badge{
@@ -438,13 +445,11 @@ body{
 }
 
 /* ==========================================================
-   HERO RIGHT — bounded stage
-   Everything (image + both floating cards) lives INSIDE this
-   padded box using non-negative insets, so nothing can ever
-   render outside the box regardless of viewport width. This
-   replaces the old approach of fixed 470px/620px sizes with
-   uncentered absolute children, which is what pushed the
-   photo off-screen at wide viewports.
+   HERO RIGHT (photo) — now visually on the LEFT
+   margin-left:auto became margin-right:auto so the bounded
+   stage still hugs the outer edge of the page (previously
+   the right edge, now the left edge) — same visual habit,
+   mirrored.
 ========================================================== */
 
 .hero-right{
@@ -455,10 +460,11 @@ body{
     justify-content:center;
     max-width:460px;
     width:100%;
-    margin-left:auto;
+    margin-right:auto;
     padding:78px 36px 54px 28px;
     overflow:hidden;
     perspective:1000px;
+    order:1;
 }
 
 /* ==========================================================
@@ -587,6 +593,10 @@ body{
 
 /* ==========================================================
    RESPONSIVE - 1100px
+   Stacked single-column layout — order reset to 0 on both so
+   the original top-to-bottom order (text, then photo) comes
+   back exactly as before. The left/right order swap above
+   only matters in the two-column desktop layout.
 ========================================================== */
 
 @media (max-width:1100px){
@@ -598,6 +608,12 @@ body{
 
 .hero-left{
     text-align:center;
+    order:0;
+}
+
+.hero-right{
+    order:0;
+    margin:0 auto;
 }
 
 .hero-left p{
@@ -620,10 +636,6 @@ body{
 
 .hero-marquee{
     margin:35px auto 0;
-}
-
-.hero-right{
-    margin:0 auto;
 }
 
 }

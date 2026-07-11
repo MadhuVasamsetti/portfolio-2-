@@ -33,6 +33,24 @@ const projects = [
     github: "#",
     live: "#",
   },
+  {
+    title: "Weather App",
+    image: weather,
+    description:
+      "Responsive weather application using OpenWeather API with beautiful UI.",
+    tech: ["React", "API", "CSS"],
+    github: "#",
+    live: "#",
+  },
+  {
+    title: "Weather App",
+    image: weather,
+    description:
+      "Responsive weather application using OpenWeather API with beautiful UI.",
+    tech: ["React", "API", "CSS"],
+    github: "#",
+    live: "#",
+  },
 ];
 
 // Fan geometry: how far each card sits from the centre card, in "slots".
