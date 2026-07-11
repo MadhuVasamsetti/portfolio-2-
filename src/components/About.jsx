@@ -213,46 +213,7 @@ function About() {
 
       </section>
 
-      {/* ================= SKILLS ================= */}
-
-      <section className="skills-overview">
-
-        <div className="container">
-
-          <motion.div
-            className="section-title"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <span>TECH STACK</span>
-            <h2>Technologies I Work With</h2>
-          </motion.div>
-
-          <motion.div
-            className="skills-grid"
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            {TECH_STACK.map((tech) => (
-              <motion.div
-                className="skill-box"
-                key={tech.name}
-                variants={popItem}
-                whileHover={{ y: -10, rotate: -4, scale: 1.05 }}
-              >
-                {tech.icon}
-                <h3>{tech.name}</h3>
-              </motion.div>
-            ))}
-          </motion.div>
-
-        </div>
-
-      </section>
+      
 
       {/* ================= JOURNEY ================= */}
 
