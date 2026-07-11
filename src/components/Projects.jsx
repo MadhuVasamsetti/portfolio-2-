@@ -14,7 +14,7 @@ const projects = [
     description:
       "A responsive calculator with scientific operations and modern UI.",
     tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/yourusername/calculator",
+    github: "https://github.com/MadhuVasamsetti/Calculator",
     live: "https://your-live-link.com",
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     description:
       "An AI-powered resume builder that generates ATS-friendly resumes with customizable templates.",
     tech: ["React", "OpenAI", "Node.js"],
-    github: "https://github.com/yourusername/ai-resume-builder",
+    github: "https://github.com/MadhuVasamsetti/AI_Resume_analyzer_final",
     live: "https://your-live-link.com",
   },
   {
@@ -32,7 +32,7 @@ const projects = [
     description:
       "A complete MERN Hospital Management System with authentication, appointments, doctors, patients, and admin dashboard.",
     tech: ["React", "Node.js", "MongoDB", "Express"],
-    github: "https://github.com/yourusername/hospital-management",
+    github: "https://github.com/MadhuVasamsetti/mernfrontend",
     live: "https://your-live-link.com",
   },
   
@@ -42,7 +42,7 @@ const projects = [
     description:
       "Generate secure passwords with customizable length and character options.",
     tech: ["React", "CSS"],
-    github: "https://github.com/yourusername/password-generator",
+    github: "https://github.com/MadhuVasamsetti/Password_generator",
     live: "https://your-live-link.com",
   },
   {
@@ -51,7 +51,7 @@ const projects = [
     description:
       "Beautiful quote generator with animations, copy feature, and responsive glassmorphism UI.",
     tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/yourusername/random-quote-generator",
+    github: "https://github.com/MadhuVasamsetti/Random_quote",
     live: "https://your-live-link.com",
   },
 ];
