@@ -22,17 +22,17 @@ const NAV_LINKS = [
 const SOCIALS = [
   {
     icon: <FaGithub />,
-    href: "https://github.com/yourusername",
+    href: "https://github.com/MadhuVasamsetti",
     label: "GitHub",
   },
   {
     icon: <FaLinkedin />,
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://linkedin.com/in/madhukar-vasamsetti-a43623330",
     label: "LinkedIn",
   },
   {
     icon: <FaInstagram />,
-    href: "https://instagram.com/yourusername",
+    href: "https://instagram.com/madhuuu._.08",
     label: "Instagram",
   },
 ];
