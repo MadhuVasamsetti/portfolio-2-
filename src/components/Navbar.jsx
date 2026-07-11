@@ -13,8 +13,9 @@ import { useTranslation } from "react-i18next";
 const NAV_LINKS = [
   { id: "about", href: "#about" },
   { id: "journey", href: "#journey" },
-  { id: "projects", href: "#projects" },
   { id: "skills", href: "#skills" },
+  
+  { id: "projects", href: "#projects" },
   { id: "contact", href: "#contact" },
 ];
 
