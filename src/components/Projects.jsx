@@ -1,61 +1,62 @@
 import "../styles/projects.css";
 import { motion } from "framer-motion";
 
-import hospital from "../assets/projects/hospital.png";
-import weather from "../assets/projects/weather.png";
-import cms from "../assets/projects/cms.png";
+import hospital from "../assets/hms.png";
+import calculator from "../assets/calculator.png";
+import airesume from "../assets/airesume.png";
+import password from "../assets/password.png";
+import quote from "../assets/quote.png";
 
 const projects = [
+  {
+    title: "Scientific Calculator",
+    image: calculator,
+    description:
+      "A responsive calculator with scientific operations and modern UI.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/yourusername/calculator",
+    live: "https://your-live-link.com",
+  },
+  {
+    title: "AI Resume Builder",
+    image: airesume,
+    description:
+      "An AI-powered resume builder that generates ATS-friendly resumes with customizable templates.",
+    tech: ["React", "OpenAI", "Node.js"],
+    github: "https://github.com/yourusername/ai-resume-builder",
+    live: "https://your-live-link.com",
+  },
   {
     title: "Hospital Management System",
     image: hospital,
     description:
-      "A complete MERN Hospital Management System with authentication, appointments, doctors, patients and dashboard.",
-    tech: ["React", "Node", "MongoDB", "Express"],
-    github: "#",
-    live: "#",
+      "A complete MERN Hospital Management System with authentication, appointments, doctors, patients, and admin dashboard.",
+    tech: ["React", "Node.js", "MongoDB", "Express"],
+    github: "https://github.com/yourusername/hospital-management",
+    live: "https://your-live-link.com",
+  },
+  
+  {
+    title: "Password Generator",
+    image: password,
+    description:
+      "Generate secure passwords with customizable length and character options.",
+    tech: ["React", "CSS"],
+    github: "https://github.com/yourusername/password-generator",
+    live: "https://your-live-link.com",
   },
   {
-    title: "Weather App",
-    image: weather,
+    title: "Random Quote Generator",
+    image: quote,
     description:
-      "Responsive weather application using OpenWeather API with beautiful UI.",
-    tech: ["React", "API", "CSS"],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Content Management System",
-    image: cms,
-    description:
-      "CMS built using React with CRUD operations and responsive dashboard.",
-    tech: ["React", "Express", "MongoDB"],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Weather App",
-    image: weather,
-    description:
-      "Responsive weather application using OpenWeather API with beautiful UI.",
-    tech: ["React", "API", "CSS"],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Weather App",
-    image: weather,
-    description:
-      "Responsive weather application using OpenWeather API with beautiful UI.",
-    tech: ["React", "API", "CSS"],
-    github: "#",
-    live: "#",
+      "Beautiful quote generator with animations, copy feature, and responsive glassmorphism UI.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/yourusername/random-quote-generator",
+    live: "https://your-live-link.com",
   },
 ];
 
-// Fan geometry: how far each card sits from the centre card, in "slots".
-// With 3 projects the offsets are [-1, 0, 1]; this scales automatically
-// if you add more projects to the array above.
+// Generate fan layout offsets
 function getFanOffsets(count) {
   const mid = (count - 1) / 2;
   return Array.from({ length: count }, (_, i) => i - mid);
@@ -67,6 +68,7 @@ function Projects() {
   return (
     <section className="projects" id="projects">
       <div className="container">
+
         <motion.p
           className="section-tag"
           initial={{ opacity: 0, y: -20 }}
@@ -90,45 +92,45 @@ function Projects() {
         <div className="project-fan">
           {projects.map((project, index) => {
             const offset = offsets[index];
-            const rotate = offset * 9; // degrees of fan-out per slot
-            const translateX = offset * 130; // horizontal spread per slot
-            const translateY = Math.abs(offset) * 46; // lower the further from centre
 
             return (
-              <motion.a
+              <motion.div
                 key={index}
-                href={project.live}
-                target="_blank"
-                rel="noreferrer"
                 className="fan-card"
-                style={{ zIndex: 100 - Math.abs(offset) }}
-                initial={{ opacity: 0, y: 80, rotate: 0 }}
+                style={{
+                  zIndex: 100 - Math.abs(offset),
+                }}
+                initial={{
+                  opacity: 0,
+                  y: 80,
+                  rotate: 0,
+                }}
                 whileInView={{
                   opacity: 1,
-                  y: translateY,
-                  x: translateX,
-                  rotate: rotate,
+                  x: offset * 130,
+                  y: Math.abs(offset) * 45,
+                  rotate: offset * 9,
                 }}
                 whileHover={{
-                  y: translateY - 28,
+                  y: Math.abs(offset) * 45 - 30,
                   rotate: 0,
                   scale: 1.05,
                   zIndex: 200,
                 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 0.7,
                   delay: index * 0.12,
-                  ease: [0.16, 1, 0.3, 1],
                 }}
               >
                 <div className="fan-card-image">
                   <img src={project.image} alt={project.title} />
-                  <div className="fan-card-overlay" />
+                  <div className="fan-card-overlay"></div>
                 </div>
 
                 <div className="fan-card-body">
                   <h3>{project.title}</h3>
+
                   <p>{project.description}</p>
 
                   <div className="tech-stack">
@@ -142,24 +144,24 @@ function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      onClick={(e) => e.stopPropagation()}
                     >
                       GitHub
                     </a>
+
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noreferrer"
-                      onClick={(e) => e.stopPropagation()}
                     >
                       Live Demo
                     </a>
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
