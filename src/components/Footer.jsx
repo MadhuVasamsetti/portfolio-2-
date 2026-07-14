@@ -29,7 +29,7 @@ function Footer() {
 
         </div>
 
-        {/* Center */}
+        
 
         <div className="footer-center">
 
@@ -47,7 +47,7 @@ function Footer() {
 
         </div>
 
-        {/* Right */}
+        
 
         <div className="footer-right">
 

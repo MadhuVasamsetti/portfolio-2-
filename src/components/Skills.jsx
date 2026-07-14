@@ -22,9 +22,7 @@ import {
   SiVite,
 } from "react-icons/si";
 
-/* ==========================================================
-   DATA
-   ========================================================== */
+
 
 const TABS = [
   {
@@ -71,9 +69,7 @@ const TABS = [
   },
 ];
 
-/* ==========================================================
-   COMPONENT
-   ========================================================== */
+
 
 function Skills() {
   const [activeId, setActiveId] = useState(TABS[0].id);
@@ -86,7 +82,7 @@ function Skills() {
 
       <div className="container">
 
-        {/* Header */}
+        
 
         <motion.p
           className="section-tag"
@@ -108,7 +104,7 @@ function Skills() {
           Technologies <span>I Work With</span>
         </motion.h2>
 
-        {/* Tabs */}
+        
 
         <motion.div
           className="skills-tabs"
@@ -135,7 +131,7 @@ function Skills() {
           ))}
         </motion.div>
 
-        {/* Tagline */}
+        
 
         <AnimatePresence mode="wait">
           <motion.p
@@ -150,7 +146,7 @@ function Skills() {
           </motion.p>
         </AnimatePresence>
 
-        {/* Skill Grid */}
+       
 
         <AnimatePresence mode="wait">
           <motion.div

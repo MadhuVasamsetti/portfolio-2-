@@ -31,16 +31,16 @@ function App() {
   return (
     <>
     <SmoothScroll />
-      {/* Premium Cursor */}
+      
       <Cursor />
 
-      {/* Mouse Glow */}
+      
       <Glow />
 
-      {/* Navigation */}
+      
       <Navbar />
 
-      {/* Sections */}
+      
       <main>
         <Hero />
         <About />
@@ -50,7 +50,7 @@ function App() {
         <Contact />
       </main>
 
-      {/* Footer */}
+      
       <Footer />
     </>
   );

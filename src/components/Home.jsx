@@ -15,7 +15,6 @@ import {
   FaCode,
 } from "react-icons/fa";
 
-/* ================= HERO DATA ================= */
 
 const ROLES = [
   "Full Stack MERN Developer",
@@ -39,8 +38,7 @@ const STATS = [
   { value: 300, suffix: "+", label: "DSA Problems" },
 ];
 
-/* ================= COUNT-UP NUMBER ================= */
-// Animates 0 -> value once the card scrolls into view, then stays.
+
 
 function Counter({ value, suffix }) {
   const ref = useRef(null);
@@ -71,7 +69,6 @@ function Counter({ value, suffix }) {
   );
 }
 
-/* ================= STAGGER VARIANTS ================= */
 
 const containerVariants = {
   hidden: {},
@@ -100,7 +97,7 @@ function Home() {
     return () => clearInterval(id);
   }, []);
 
-  // Cursor spotlight (page-wide) + subtle photo parallax
+ 
   useEffect(() => {
     const bg = bgRef.current;
     const image = imageRef.current;
@@ -124,8 +121,7 @@ function Home() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // 3D tilt on the photo, tracked locally so it only reacts
-  // while the cursor is actually over the stage.
+
   useEffect(() => {
     const el = tiltRef.current;
     if (!el) return;
@@ -161,7 +157,7 @@ function Home() {
       <div className="hero-bg-text">MADHU</div>
 
       <div className="container hero-grid">
-        {/* LEFT */}
+        
 
         <motion.div
           className="hero-left"
@@ -241,7 +237,7 @@ function Home() {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT — bounded stage: image + cards can never escape this box */}
+      
 
         <motion.div
           className="hero-right"

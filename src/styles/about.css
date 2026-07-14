@@ -1,6 +1,4 @@
-/* ==========================================================
-   GOOGLE FONTS
-========================================================== */
+
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap");
 
@@ -10,9 +8,7 @@
     initial-value:0deg;
 }
 
-/* ==========================================================
-   ROOT
-========================================================== */
+
 
 .about{
 
@@ -52,9 +48,7 @@
     font-size:1rem;
 }
 
-/* ==========================================================
-   CONTAINER
-========================================================== */
+
 
 .container{
     width:min(1220px,92%);
@@ -63,9 +57,7 @@
     z-index:2;
 }
 
-/* ==========================================================
-   SHARED ANIMATIONS
-========================================================== */
+
 
 @keyframes blobFloat{
     0%,100%{ transform:translate(0,0) scale(1); }
@@ -118,11 +110,7 @@
     100%{ top:100%; opacity:0; }
 }
 
-/* ==========================================================
-   GIANT BACKGROUND WATERMARKS
-   Same "huge faded name" motif as the Home hero, generated
-   with pure CSS `content` so no JSX changes are needed.
-========================================================== */
+
 
 .about-me::before{ content:"ABOUT"; }
 .skills-overview::before{ content:"STACK"; }
@@ -158,9 +146,7 @@
     animation:watermarkDrift 16s ease-in-out infinite;
 }
 
-/* Scroll-linked reveal for the watermark (progressive
-   enhancement — Chrome/Edge only, degrades gracefully to
-   the drift animation above on other browsers) */
+
 
 @supports (animation-timeline: view()){
     .about-me::before,
@@ -182,9 +168,6 @@
     }
 }
 
-/* ==========================================================
-   HEADINGS — shifting gradient text
-========================================================== */
 
 .section-title h2,
 .about-info h2,
@@ -198,9 +181,7 @@
     animation:textGradientShift 8s ease-in-out infinite;
 }
 
-/* ==========================================================
-   SECTION TITLE
-========================================================== */
+
 
 .section-title{
     text-align:center;
@@ -248,9 +229,7 @@
     margin:auto;
 }
 
-/* ==========================================================
-   SMALL TAG
-========================================================== */
+
 
 .section-tag{
     display:inline-flex;
@@ -267,9 +246,7 @@
     margin-bottom:25px;
 }
 
-/* ==========================================================
-   BUTTONS — shine sweep, idle pulse, magnetic bounce
-========================================================== */
+
 
 .primary-btn,
 .secondary-btn{
@@ -349,9 +326,7 @@
     flex-wrap:wrap;
 }
 
-/* ==========================================================
-   GLOWING ROTATING BORDER (reusable)
-========================================================== */
+
 
 .skill-box,
 .info-card,
@@ -383,9 +358,7 @@
     opacity:1;
 }
 
-/* ==========================================================
-   ABOUT ME
-========================================================== */
+
 
 .about-me{
     padding:140px 0;
@@ -495,9 +468,7 @@
     .about-me{ padding:100px 0; }
 }
 
-/* ==========================================================
-   SKILLS OVERVIEW
-========================================================== */
+
 
 .skills-overview{
     padding:140px 0;
@@ -571,9 +542,7 @@
     .skills-grid{ grid-template-columns:repeat(2,1fr); }
 }
 
-/* ==========================================================
-   JOURNEY / TIMELINE
-========================================================== */
+
 
 .journey-section{
     padding:140px 0;
@@ -615,10 +584,7 @@
     margin-left:-2px;
 }
 
-/* Traveling glow — a small dot that continuously runs the
-   full length of the timeline, independent of the per-card
-   pulsing dots. This is the "always something moving" touch
-   Lando's page leans on heavily. */
+
 
 .timeline::after{
     content:"";
@@ -729,9 +695,7 @@
     .timeline-card h3{ font-size:1.15rem; }
 }
 
-/* ==========================================================
-   FEATURED PROJECTS
-========================================================== */
+
 
 .featured-projects{
     padding:150px 0;
@@ -859,9 +823,7 @@
     .project-content h2{ font-size:1.8rem; }
 }
 
-/* ==========================================================
-   ACHIEVEMENTS
-========================================================== */
+
 
 .achievements-section{
     padding:140px 0;
@@ -954,9 +916,7 @@
     .achievement-grid{ grid-template-columns:1fr; }
 }
 
-/* ==========================================================
-   CURRENT FOCUS
-========================================================== */
+
 
 .focus-section{
     padding:140px 0;
@@ -1025,9 +985,7 @@
     .focus-grid{ grid-template-columns:1fr; }
 }
 
-/* ==========================================================
-   FINAL CTA
-========================================================== */
+
 
 .cta-section{
     padding:140px 0;
@@ -1102,9 +1060,7 @@
     .cta-card .hero-buttons a{ width:100%; justify-content:center; }
 }
 
-/* ==========================================================
-   REDUCED MOTION
-========================================================== */
+
 
 @media (prefers-reduced-motion: reduce){
     *,
@@ -1116,9 +1072,7 @@
     }
 }
 
-/* ==========================================================
-   MISC
-========================================================== */
+
 
 ::selection{ background:#00E5FF; color:#000; }
 *{ -webkit-tap-highlight-color:transparent; }

@@ -1,10 +1,4 @@
-/* ==========================================================
-   SKILL MARQUEE — full width, edge to edge, scrolling loop
-   Drop <SkillMarquee /> anywhere inside a section. The
-   full-bleed trick below breaks it out of any parent
-   .container max-width so it always spans the whole page,
-   even if the component sits inside a centered container.
-========================================================== */
+
 
 .skill-marquee {
     position: relative;

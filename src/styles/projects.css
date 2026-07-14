@@ -29,7 +29,7 @@
   color: var(--accent, #d97757);
 }
 
-/* ---------- Fan layout ---------- */
+
 
 .project-fan {
   position: relative;
@@ -160,7 +160,7 @@
   opacity: 0.85;
 }
 
-/* ---------- Responsive ---------- */
+
 
 @media (max-width: 900px) {
   .project-fan {

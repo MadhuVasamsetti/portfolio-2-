@@ -56,7 +56,7 @@ const projects = [
   },
 ];
 
-// Generate fan layout offsets
+
 function getFanOffsets(count) {
   const mid = (count - 1) / 2;
   return Array.from({ length: count }, (_, i) => i - mid);

@@ -58,12 +58,12 @@ function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
-        {/* Logo */}
+        
         <a href="#home" className="logo" onClick={closeMenu}>
           Madhukar
         </a>
 
-        {/* Navigation */}
+        
         <ul className={menuOpen ? "nav-links active" : "nav-links"}>
           {NAV_LINKS.map((link) => (
             <li key={link.id}>
@@ -76,8 +76,8 @@ function Navbar() {
             </li>
           ))}
 
-          {/* Mobile Social Icons */}
-          <li className="mobile-socials">
+          
+           <li className="mobile-socials">
             {SOCIALS.map((social) => (
               <a
                 key={social.label}
@@ -92,7 +92,7 @@ function Navbar() {
           </li>
         </ul>
 
-        {/* Right Side */}
+       
         <div className="nav-right">
           <div className="nav-socials">
             {SOCIALS.map((social) => (
@@ -108,7 +108,7 @@ function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Menu Toggle */}
+          
           <div
             className="menu-icon"
             onClick={() => setMenuOpen(!menuOpen)}

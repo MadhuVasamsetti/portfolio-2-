@@ -17,9 +17,7 @@ import {
   FaServer,
 } from "react-icons/fa";
 
-/* ==========================================================
-   DATA
-   ========================================================== */
+
 
 const TECH_STACK = [
   { icon: <FaReact />, name: "React" },
@@ -71,9 +69,7 @@ const FOCUS = [
   { num: "04", title: "Open Source", text: "Exploring GitHub projects, contributing and improving collaboration skills." },
 ];
 
-/* ==========================================================
-   COUNT-UP NUMBER (same technique as the Home page stats)
-   ========================================================== */
+
 
 function Counter({ value, suffix }) {
   const ref = useRef(null);
@@ -108,9 +104,7 @@ function Counter({ value, suffix }) {
   );
 }
 
-/* ==========================================================
-   ANIMATION VARIANTS
-   ========================================================== */
+
 
 const container = {
   hidden: {},
@@ -131,7 +125,7 @@ function About() {
   return (
     <section className="about" id="about">
 
-      {/* ================= ABOUT ================= */}
+     
 
       <section className="about-me">
 
@@ -215,7 +209,7 @@ function About() {
 
       
 
-      {/* ================= JOURNEY ================= */}
+      
 
       <section className="journey-section" id="journey">
 
@@ -265,7 +259,7 @@ function About() {
 
       </section>
 
-      {/* ================= PROJECTS ================= */}
+      
 
       <section className="featured-projects">
 
@@ -282,7 +276,7 @@ function About() {
             <h2>Projects That Define My Development Journey</h2>
           </motion.div>
 
-          {/* Project 1 */}
+          
 
           <motion.div
             className="project-row"
@@ -326,7 +320,7 @@ function About() {
 
           </motion.div>
 
-          {/* Project 2 */}
+        
 
           <motion.div
             className="project-row reverse"
@@ -374,7 +368,7 @@ function About() {
 
       </section>
 
-      {/* ================= ACHIEVEMENTS ================= */}
+      
 
       <section className="achievements-section">
 
@@ -416,7 +410,7 @@ function About() {
 
       </section>
 
-      {/* ================= CURRENT FOCUS ================= */}
+      
 
       <section className="focus-section">
 
@@ -458,7 +452,7 @@ function About() {
 
       </section>
 
-      {/* ================= FINAL CTA ================= */}
+      
 
       <section className="cta-section">
 
