@@ -15,7 +15,7 @@ const projects = [
       "A responsive calculator with scientific operations and modern UI.",
     tech: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/MadhuVasamsetti/Calculator",
-    live: "https://your-live-link.com",
+    live: "https://calculator123-orpin.vercel.app/",
   },
   {
     title: "AI Resume Builder",
@@ -43,7 +43,7 @@ const projects = [
       "Generate secure passwords with customizable length and character options.",
     tech: ["React", "CSS"],
     github: "https://github.com/MadhuVasamsetti/Password_generator",
-    live: "https://your-live-link.com",
+    live: "https://password-generator-6jmj.vercel.app/",
   },
   {
     title: "Random Quote Generator",
@@ -52,7 +52,7 @@ const projects = [
       "Beautiful quote generator with animations, copy feature, and responsive glassmorphism UI.",
     tech: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/MadhuVasamsetti/Random_quote",
-    live: "https://your-live-link.com",
+    live: "https://random-quote-steel.vercel.app/",
   },
 ];
 

@@ -297,26 +297,25 @@ function About() {
               <img src={medicineProject} alt="Medicine Reminder" />
             </motion.div>
 
-            <div className="project-content">
-              <span className="project-tag">MERN STACK</span>
-              <h2>Medicine Reminder System</h2>
-              <p>
-                A complete MERN application allowing users to manage medicines,
-                reminders and authentication with a clean responsive UI.
-              </p>
+            <div className="project-buttons">
+  <a
+    href="https://medicine-remainder-xra8.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="primary-btn"
+  >
+    <span>Live Demo</span>
+  </a>
 
-              <div className="tech-list">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>MongoDB</span>
-                <span>Express</span>
-              </div>
-
-              <div className="project-buttons">
-                <a href="#" className="primary-btn"><span>Live Demo</span></a>
-                <a href="#" className="secondary-btn"><span>GitHub</span></a>
-              </div>
-            </div>
+  <a
+    href="https://github.com/MadhuVasamsetti/Medicine_remainder"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="secondary-btn"
+  >
+    <span>GitHub</span>
+  </a>
+</div>
 
           </motion.div>
 
