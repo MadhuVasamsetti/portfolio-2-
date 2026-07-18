@@ -35,7 +35,7 @@ const STACK_ICONS = [
 const STATS = [
   { value: 10, suffix: "+", label: "Projects" },
   { value: 15, suffix: "+", label: "Technologies" },
-  { value: 300, suffix: "+", label: "DSA Problems" },
+  { value:100, suffix: "+", label: "DSA Problems" },
 ];
 
 
