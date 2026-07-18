@@ -58,7 +58,7 @@ const TIMELINE = [
 const ACHIEVEMENTS = [
   { value: 10, suffix: "+", title: "Projects", text: "Successfully completed full-stack and frontend development projects." },
   { value: 15, suffix: "+", title: "Technologies", text: "Hands-on experience with modern frontend, backend and cloud tools." },
-  { value: 300, suffix: "+", title: "DSA Problems", text: "Solved hundreds of coding problems to strengthen analytical thinking." },
+  { value: 100, suffix: "+", title: "DSA Problems", text: "Solved hundreds of coding problems to strengthen analytical thinking." },
   { value: null, suffix: "∞", title: "Learning", text: "Continuously learning new technologies and improving every single day." },
 ];
 
