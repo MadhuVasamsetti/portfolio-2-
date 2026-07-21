@@ -5,7 +5,7 @@ function Loader() {
     <div className="loader">
 
       <h1 className="loader-title">
-        MADHU
+        MADHU'S PORTFOLIO
       </h1>
 
       <div className="loading-line">
