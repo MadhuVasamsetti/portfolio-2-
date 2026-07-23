@@ -125,7 +125,7 @@ function About() {
   return (
     <section className="about" id="about">
 
-     
+
 
       <section className="about-me">
 
@@ -207,9 +207,7 @@ function About() {
 
       </section>
 
-      
 
-      
 
       <section className="journey-section" id="journey">
 
@@ -259,7 +257,7 @@ function About() {
 
       </section>
 
-      
+
 
       <section className="featured-projects">
 
@@ -276,7 +274,7 @@ function About() {
             <h2>Projects That Define My Development Journey</h2>
           </motion.div>
 
-          
+
 
           <motion.div
             className="project-row"
@@ -297,29 +295,46 @@ function About() {
               <img src={medicineProject} alt="Medicine Reminder" />
             </motion.div>
 
-            <div className="project-buttons">
-  <a
-    href="https://medicine-remainder-xra8.vercel.app/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="primary-btn"
-  >
-    <span>Live Demo</span>
-  </a>
+            <div className="project-content">
+              <span className="project-tag">FULL STACK</span>
+              <h2>Medicine Reminder System</h2>
+              <p>
+                A smart medicine reminder app that helps users track dosage
+                timings, manage prescriptions and stay on schedule with a
+                clean, responsive UI.
+              </p>
 
-  <a
-    href="https://github.com/MadhuVasamsetti/Medicine_remainder"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="secondary-btn"
-  >
-    <span>GitHub</span>
-  </a>
-</div>
+              <div className="tech-list">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+                <span>Express</span>
+              </div>
+
+              <div className="project-buttons">
+                <a
+                  href="https://medicine-remainder-xra8.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="primary-btn"
+                >
+                  <span>Live Demo</span>
+                </a>
+
+                <a
+                  href="https://github.com/MadhuVasamsetti/Medicine_remainder"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="secondary-btn"
+                >
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
 
           </motion.div>
 
-        
+
 
           <motion.div
             className="project-row reverse"
@@ -367,7 +382,7 @@ function About() {
 
       </section>
 
-      
+
 
       <section className="achievements-section">
 
@@ -409,7 +424,7 @@ function About() {
 
       </section>
 
-      
+
 
       <section className="focus-section">
 
@@ -451,7 +466,7 @@ function About() {
 
       </section>
 
-      
+
 
       <section className="cta-section">
 
