@@ -86,7 +86,7 @@ function Projects() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          Featured <span>Projects</span>
+         Additional Featured <span>Projects</span>
         </motion.h2>
 
         <div className="project-fan">
