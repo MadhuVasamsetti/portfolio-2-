@@ -91,7 +91,7 @@ function Skills() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          MY SKILLS
+          CURRENT SKILLS
         </motion.p>
 
         <motion.h2
