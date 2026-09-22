@@ -60,7 +60,7 @@ function Navbar() {
       <div className="nav-container">
         
         <a href="#home" className="logo" onClick={closeMenu}>
-          Madhu
+          Madhukar
         </a>
 
         
